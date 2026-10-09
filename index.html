@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration and Result Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Student Portal</div>
+
+        <div class="nav-links">
+            <a href="#registration">Registration</a>
+            <a href="#result">Result</a>
+            <a href="#records">Saved Records</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Registration Section -->
+        <section id="registration" class="container">
+            <h1>Student Registration</h1>
+            <p class="subtitle">
+                Enter student details and marks to generate a result.
+            </p>
+
+            <form id="studentForm">
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="studentName">Student Name</label>
+                        <input
+                            type="text"
+                            id="studentName"
+                            placeholder="Enter student name"
+                            required
+                            minlength="2"
+                            maxlength="60"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="student@example.com"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="10-digit phone number"
+                            inputmode="numeric"
+                            maxlength="10"
+                            pattern="[0-9]{10}"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="course">Course</label>
+                        <select id="course" required>
+                            <option value="">Select Course</option>
+                            <option value="B.Tech CSE">B.Tech CSE</option>
+                            <option value="BCA">BCA</option>
+                            <option value="B.Sc Computer Science">
+                                B.Sc Computer Science
+                            </option>
+                            <option value="MCA">MCA</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="htmlMarks">HTML Marks (out of 100)</label>
+                        <input
+                            type="number"
+                            id="htmlMarks"
+                            placeholder="Enter HTML marks"
+                            min="0"
+                            max="100"
+                            step="1"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cssMarks">CSS Marks (out of 100)</label>
+                        <input
+                            type="number"
+                            id="cssMarks"
+                            placeholder="Enter CSS marks"
+                            min="0"
+                            max="100"
+                            step="1"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jsMarks">
+                            JavaScript Marks (out of 100)
+                        </label>
+                        <input
+                            type="number"
+                            id="jsMarks"
+                            placeholder="Enter JavaScript marks"
+                            min="0"
+                            max="100"
+                            step="1"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+                <button type="submit" class="generate-btn">
+                    Generate Result
+                </button>
+
+                <p id="formMessage" class="form-message"
+                   role="alert" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <!-- Result Section -->
+        <section id="result" class="result-section">
+            <h2>Student Result</h2>
+
+            <div id="resultBox" class="result-box" aria-live="polite">
+                <p class="no-result">
+                    Fill in the registration form and click
+                    <strong>Generate Result</strong>.
+                </p>
+            </div>
+
+            <button type="button" id="downloadJson"
+                    class="secondary-btn" hidden>
+                Download Result as JSON
+            </button>
+        </section>
+
+        <!-- Saved Records Section -->
+        <section id="records" class="records-section">
+            <div class="records-heading">
+                <h2>Saved Student Records</h2>
+                <button type="button" id="clearRecords"
+                        class="clear-btn">
+                    Clear All Records
+                </button>
+            </div>
+
+            <p class="subtitle">
+                Records saved in this browser's Local Storage.
+            </p>
+
+            <div id="recordsList" class="records-list">
+                <p class="no-result">No saved records yet.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Student Portal | Registration and Result Management System</p>
+    </footer>
+
+</body>
+</html>
